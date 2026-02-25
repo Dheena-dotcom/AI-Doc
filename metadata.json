@@ -1,0 +1,5 @@
+{
+  "name": "AI Doc",
+  "description": "An AI-powered symptom checker and health guidance tool. Note: Not a substitute for professional medical advice.",
+  "requestFramePermissions": []
+}
