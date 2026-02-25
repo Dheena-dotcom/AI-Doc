@@ -7,6 +7,7 @@ export interface DiagnosisResult {
   }[];
   severity: 'Low' | 'Medium' | 'High' | 'Emergency';
   recommendation: string;
+  nextSteps: string[];
   disclaimer: string;
 }
 

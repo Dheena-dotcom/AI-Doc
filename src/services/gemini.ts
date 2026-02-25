@@ -10,7 +10,8 @@ export async function getDiagnosis(symptoms: string): Promise<DiagnosisResult> {
     SYMPTOMS: ${symptoms}
     
     IMPORTANT: You are an AI, not a doctor. Your response must be structured, cautious, and include a strong disclaimer. 
-    Focus on common possibilities but always prioritize safety and professional consultation.`,
+    Focus on common possibilities but always prioritize safety and professional consultation.
+    Include a list of "nextSteps" which should be actionable health guidance, wellness tips, or specific medical advice (like "Consult a specialist" or "Monitor temperature every 4 hours").`,
     config: {
       responseMimeType: "application/json",
       responseSchema: {
@@ -31,9 +32,10 @@ export async function getDiagnosis(symptoms: string): Promise<DiagnosisResult> {
           },
           severity: { type: Type.STRING, enum: ["Low", "Medium", "High", "Emergency"] },
           recommendation: { type: Type.STRING },
+          nextSteps: { type: Type.ARRAY, items: { type: Type.STRING } },
           disclaimer: { type: Type.STRING }
         },
-        required: ["potentialConditions", "severity", "recommendation", "disclaimer"]
+        required: ["potentialConditions", "severity", "recommendation", "nextSteps", "disclaimer"]
       }
     }
   });

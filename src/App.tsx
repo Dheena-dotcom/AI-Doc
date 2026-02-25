@@ -295,6 +295,24 @@ export default function App() {
                     </div>
                   </div>
 
+                  {/* Next Steps & Guidance */}
+                  <div className="glass-card rounded-3xl p-8">
+                    <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                      <Activity className="w-5 h-5 text-emerald-600" />
+                      Recommended Next Steps
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {result?.nextSteps.map((step, idx) => (
+                        <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-zinc-50 border border-zinc-100">
+                          <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold shrink-0">
+                            {idx + 1}
+                          </div>
+                          <p className="text-sm text-zinc-700 leading-snug">{step}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* AI Disclaimer */}
                   <div className="bg-zinc-900 text-zinc-400 p-6 rounded-3xl text-xs leading-relaxed flex gap-4">
                     <ShieldAlert className="w-5 h-5 text-zinc-500 shrink-0" />
